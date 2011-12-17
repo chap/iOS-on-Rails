@@ -45,6 +45,7 @@
     
     [[CompanyDirectoryAPIClient sharedClient] postPath:@"/employees" parameters:[NSDictionary dictionaryWithObject:mutableParameters forKey:@"employee"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", responseObject);
+        [[self navigationController] dismissModalViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         [[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"Record could not be saved", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil, nil] autorelease] show];
